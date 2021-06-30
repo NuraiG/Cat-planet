@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import TheCats from './components/TheCats.vue';
+import TheCats from "./components/TheCats.vue";
 import TheHeader from "./components/TheHeader.vue";
 export default {
   name: "App",

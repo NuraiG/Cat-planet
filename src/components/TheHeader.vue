@@ -9,7 +9,7 @@
   background-color: cornflowerblue;
   display: flex;
   justify-content: space-between;
-  height: 60px;
+  height: 100px;
 }
 h2,span {
   color: rgb(223, 240, 237);
