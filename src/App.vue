@@ -1,18 +1,18 @@
 <template>
- <the-header></the-header>
- <h1> Cat planet </h1>
+  <the-header></the-header>
+  <the-cats></the-cats>
 </template>
 
 <script>
-import TheHeader from "./components/TheHeader.vue"
+import TheCats from './components/TheCats.vue';
+import TheHeader from "./components/TheHeader.vue";
 export default {
-  name: 'App',
-  components:{
+  name: "App",
+  components: {
     TheHeader,
-  }
-}
+    TheCats,
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
