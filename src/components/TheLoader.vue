@@ -30,4 +30,7 @@
 .loader {
  margin: 300px auto;
 }
+.loader >div{
+    margin: 15px;
+}
 </style>
