@@ -1,17 +1,18 @@
 <template>
   <section class="container-flex">
     <the-loader v-if="isLoading"></the-loader>
-    <the-cat-item
-      v-else
-      v-for="cat in cats"
-      :name="cat.name"
-      :img="cat.image"
-      :description="cat.desc"
-      :temperament="cat.temperament"
-      :key="cat.id"
-      :id="cat.id"
-      @click='getCat'
-    ></the-cat-item>
+    <router-link :to="gotoLink" v-else>
+      <the-cat-item
+        v-for="cat in cats"
+        :name="cat.name"
+        :img="cat.image"
+        :description="cat.desc"
+        :temperament="cat.temperament"
+        :key="cat.id"
+        :id="cat.id"
+        @click="getCat"
+      ></the-cat-item>
+    </router-link>
   </section>
 </template>
 <script>
@@ -34,10 +35,11 @@ export default {
     return {
       cats: [],
       isLoading: false,
+      selectedId: "selectedId",
     };
   },
   created() {
-    this.getData();
+    this.getData(), console.log(this.selectedId);
   },
   methods: {
     async getData() {
@@ -61,14 +63,25 @@ export default {
         throw new Error("Unable to fetch data.");
       }
     },
-    getCat(ev){
-      console.log(ev.currentTarget.id);
-    }
+    getCat(ev) {
+      this.selectedId = ev.currentTarget.id;
+    },
+  },
+  computed: {
+    gotoLink() {
+      return `/${this.selectedId}`;
+    },
   },
 };
 </script>
 <style scoped>
 .container-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: baseline;
+}
+a {
+  text-decoration: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: baseline;
