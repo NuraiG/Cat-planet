@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" :id="id">
     <img :src="img.url" :alt="name" />
     <h3>{{ name }}</h3>
     <p>{{ description }}</p>
@@ -8,7 +8,7 @@
 </template>
 <script>
 export default {
-  props: ["name", "img", "description", "temperament"],
+  props: ["name", "img", "description", "temperament","id"],
 };
 </script>
 <style scoped>

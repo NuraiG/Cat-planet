@@ -9,16 +9,21 @@
       :description="cat.desc"
       :temperament="cat.temperament"
       :key="cat.id"
+      :id="cat.id"
+      @click='getCat'
     ></the-cat-item>
   </section>
 </template>
 <script>
 import TheLoader from "./TheLoader.vue";
+import TheCatItem from "./TheCatItem.vue";
+
 const axios = require("axios").default;
+
 axios.defaults.headers.common["api_key"] =
   "813c2681-0d2c-475d-b296-fad6abcfcd39";
-const url = "https://api.thecatapi.com/v1";
-import TheCatItem from "./TheCatItem.vue";
+
+const baseURL = "https://api.thecatapi.com/v1";
 
 export default {
   components: {
@@ -38,7 +43,7 @@ export default {
     async getData() {
       this.isLoading = true;
       try {
-        const response = await axios.get(`${url}/breeds`);
+        const response = await axios.get(`${baseURL}/breeds`);
         this.cats = response.data
           .filter((res) => res.image)
           .map((res) => {
@@ -52,11 +57,13 @@ export default {
           });
         this.isLoading = false;
       } catch (err) {
-        // throw new Error("Unable to fetch data.");
-        console.log(err);
         this.isLoading = false;
+        throw new Error("Unable to fetch data.");
       }
     },
+    getCat(ev){
+      console.log(ev.currentTarget.id);
+    }
   },
 };
 </script>
