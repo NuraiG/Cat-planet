@@ -39,7 +39,7 @@ export default {
     };
   },
   created() {
-    this.getData(), console.log(this.selectedId);
+    this.getData();
   },
   methods: {
     async getData() {
@@ -69,6 +69,7 @@ export default {
   },
   computed: {
     gotoLink() {
+      if (this.selectedId == "selectedId") return "/";
       return `/${this.selectedId}`;
     },
   },
