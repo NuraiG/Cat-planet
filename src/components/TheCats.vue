@@ -70,7 +70,7 @@ export default {
   computed: {
     gotoLink() {
       if (this.selectedId == "selectedId") return "/";
-      return `/${this.selectedId}`;
+      return `/cats/${this.selectedId}`;
     },
   },
 };

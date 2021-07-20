@@ -10,9 +10,10 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      component: TheMainPage,
+      redirect: "/cats",
     },
-    { path: "/:id", component: TheCatDetails, props: true },
+    { path: "/cats", component: TheMainPage },
+    { path: "/cats/:id", component: TheCatDetails, props: true },
     { path: "/:notFound(.*)", component: NotFound },
   ],
 });
