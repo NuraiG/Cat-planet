@@ -2,7 +2,7 @@
   <section>
     <the-loader class="container-flex" v-if="isLoading"></the-loader>
 
-    <div v-if="!isLoading && currentCat.length != 0">
+    <div v-if="!isLoading && currentCat.length != 0" class="details">
       <h3>{{ currentCat[0].name }}</h3>
       <span>From: {{ currentCat[0].from }}</span>
       <img :src="currentCat[0].imageUrl" :alt="currentCat[0].name" />
@@ -122,5 +122,43 @@ export default {
 .container-flex {
   display: flex;
   justify-content: center;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: cursive;
+  margin: 20px auto;
+}
+.details > img {
+  width: 500px;
+  height: 400px;
+  border-radius: 5%;
+}
+.details > h3 {
+  color: rgb(25, 143, 240);
+  font-size: 34px;
+  margin: 15px;
+}
+.details > span:first-of-type {
+  color: rgb(27, 177, 27);
+}
+.details > p {
+  margin: 5px 200px;
+}
+.details > h4:first-of-type {
+  color: rgb(206, 78, 78);
+  font-weight: bolder;
+  margin: 30px;
+}
+.details > span {
+  color: rgb(204, 0, 255);
+  margin: 10px 20px;
+}
+.details > h4 {
+  color: rgb(0, 119, 255);
+  margin: 10px;
+  font-weight: bolder;
 }
 </style>
